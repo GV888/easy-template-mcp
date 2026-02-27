@@ -1,0 +1,18 @@
+{
+  "name": "easy-template-mcp",
+  "version": "1.0.0",
+  "description": "Easy-Template.com MCP Server – Tools für KI-Assistenten (Claude Desktop, VS Code Copilot)",
+  "main": "src/mcp.js",
+  "scripts": {
+    "start": "node src/mcp.js",
+    "mcp": "node src/mcp.js"
+  },
+  "keywords": ["mcp", "easy-template", "ebay", "api"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1"
+  }
+}

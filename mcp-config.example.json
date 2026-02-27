@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "easy-template": {
+      "command": "node",
+      "args": ["C:/Users/.../easy-template-mcp/src/mcp.js"],
+      "env": {
+        "ET_CLIENT_ID": "deine_client_id",
+        "ET_CLIENT_SECRET": "dein_client_secret"
+      }
+    }
+  }
+}
