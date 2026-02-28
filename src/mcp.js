@@ -13,11 +13,19 @@ const EasyTemplateAPI = require('./api.js');
 
 const api = new EasyTemplateAPI();
 
-// Auto-login if credentials are set via environment variables
+// Auto-login only if no valid cached token exists
 if (process.env.ET_CLIENT_ID && process.env.ET_CLIENT_SECRET) {
-  api.login(process.env.ET_CLIENT_ID, process.env.ET_CLIENT_SECRET)
-    .then(() => console.error('✅ Easy-Template: Auto-login successful'))
-    .catch(e => console.error('⚠️  Easy-Template: Auto-login failed:', e.message));
+  const now = Date.now();
+  const hasValidToken = api.accessToken && api.tokenExpires && api.tokenExpires > now + 60000;
+  const hasValidRefresh = api._refreshToken && api.refreshTokenExpires && api.refreshTokenExpires > now;
+
+  if (!hasValidToken && !hasValidRefresh) {
+    api.login(process.env.ET_CLIENT_ID, process.env.ET_CLIENT_SECRET)
+      .then(() => console.error('✅ Easy-Template: Auto-login successful'))
+      .catch(e => console.error('⚠️  Easy-Template: Auto-login failed:', e.message));
+  } else {
+    console.error('✅ Easy-Template: Using cached token');
+  }
 }
 
 const server = new Server(
