@@ -157,6 +157,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
       }
     },
     {
+      name: 'et_get_template',
       description: 'Get the rendered HTML template for an eBay item (optionally specifying a template).',
       inputSchema: {
         type: 'object',
