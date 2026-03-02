@@ -12,7 +12,9 @@
     "mcp",
     "easy-template",
     "ebay",
-    "api"
+    "api",
+    "clawhub",
+    "skill"
   ],
   "author": "",
   "license": "MIT",
